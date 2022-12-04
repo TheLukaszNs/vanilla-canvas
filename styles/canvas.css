@@ -1,0 +1,119 @@
+body {
+  overflow: hidden;
+}
+
+canvas {
+  width: 100%;
+  height: 100vh;
+}
+
+canvas#ghost-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.tools {
+  --spacing: 1rem;
+  position: absolute;
+  left: var(--spacing);
+  z-index: 2;
+
+  padding: calc(var(--spacing) * 0.5);
+
+  width: calc(100% - var(--spacing) * 2);
+
+  background: #403d39;
+  border-radius: 0.5rem;
+
+  box-shadow: 0px 0px 20px 2px rgb(0 0 0 / 0.2);
+}
+
+.tools .divider {
+  height: 100%;
+  width: 2px;
+  border-radius: 50%;
+  background: rgb(121, 121, 121);
+  margin-inline: auto;
+}
+
+.tools.tools-top {
+  display: grid;
+  top: var(--spacing);
+  gap: 1rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.tools-top button {
+  background: transparent;
+  border: none;
+  color: white;
+  border-radius: 8px;
+}
+
+.tools-top .button__mode {
+  transition: background 0.125s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.tools-top button.active,
+.tools-top button:hover {
+  padding: 0.5rem;
+  background: #eb5e28;
+}
+
+.tools.tools-bottom {
+  bottom: var(--spacing);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: var(--spacing);
+}
+
+.tools__color {
+  position: relative;
+
+  width: 36px;
+  height: 36px;
+}
+
+.tools__color .color__badge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+
+  background: white;
+  width: 16px;
+  aspect-ratio: 1 / 1;
+
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.tools__color input {
+  appearance: none;
+  position: absolute;
+  left: 0;
+}
+
+.tools__size input {
+  accent-color: #eb5e28;
+}
+
+@media screen and (min-width: 768px) {
+  .tools.tools-top {
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
+    width: auto;
+  }
+
+  .tools.tools-top .divider {
+    width: 100%;
+    height: 2px;
+  }
+}

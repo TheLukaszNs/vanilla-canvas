@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>colorfull. - sesja prywatna</title>
+
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/canvas.css" />
+    <link rel="stylesheet" href="./styles/common.css" />
+
+    <script
+      src="https://kit.fontawesome.com/71c7cbe406.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="tools tools-top">
+      <button class="button__mode" data-mode="drawing">
+        <i class="fa-solid fa-pencil"></i>
+      </button>
+      <button class="button__mode" data-mode="line">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      <button class="button__mode" data-mode="circle">
+        <i class="fa-regular fa-circle"></i>
+      </button>
+      <div class="divider"></div>
+      <button onclick="undo()"><i class="fa-solid fa-rotate-left"></i></button>
+      <button onclick="redo()"><i class="fa-solid fa-rotate-right"></i></button>
+      <button onclick="clearDrawing()">
+        <i class="fa-regular fa-trash-can"></i>
+      </button>
+    </div>
+
+    <canvas></canvas>
+    <canvas id="ghost-canvas"></canvas>
+
+    <div class="tools tools-bottom">
+      <div class="tools__size">
+        <label for="size"><i class="fa-solid fa-brush"></i></label>
+        <input type="range" id="size" value="4" min="4" max="20" step="4" />
+      </div>
+      <div class="tools__color">
+        <label for="color">
+          <i class="fa-solid fa-palette"></i>
+          <div class="color__badge"></div>
+        </label>
+        <input type="color" id="color" value="#EB5E28" />
+      </div>
+    </div>
+
+    <script src="./src/canvas.js"></script>
+  </body>
+</html>
